@@ -17,3 +17,6 @@ venv/
 
 # Database
 *.db
+
+# Environment Variables
+.env
