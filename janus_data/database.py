@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# PostgreSQL connection string
+# PostgresSQL connection string
 DB_PASSWORD = os.getenv("JANUS_DB_PASSWORD")
 if not DB_PASSWORD:
     raise ValueError(
@@ -35,7 +35,7 @@ def init_db():
     """
     Initializes the database by creating all tables defined in Base.metadata.
     """
-    print("Initializing PostgreSQL database: janus_db")
+    print("Initializing PostgresSQL database: janus_db")
     Base.metadata.create_all(bind=engine)
     print("Database tables created (if they didn't exist).")
 

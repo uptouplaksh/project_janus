@@ -1,13 +1,19 @@
-# janus_network/sniffer.py
-from scapy.all import sniff, ARP, IP, Ether, Packet
+from scapy.all import sniff  # type: ignore
+from scapy.layers.l2 import ARP, Ether  # type: ignore
+from scapy.layers.inet import IP  # type: ignore
+from scapy.packet import Packet  # type: ignore
 from janus_data.database import SessionLocal, init_db
 from janus_data.models import Host, PacketData
 from datetime import datetime, timezone
 import logging
 
 # Setup logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 def utcnow():

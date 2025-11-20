@@ -1,4 +1,3 @@
-# janus_data/models.py
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean, LargeBinary
 from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
