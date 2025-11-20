@@ -8,11 +8,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # PostgreSQL connection string
-# Fetch password from environment variable for security
 DB_PASSWORD = os.getenv("JANUS_DB_PASSWORD")
-
 if not DB_PASSWORD:
-    raise ValueError("JANUS_DB_PASSWORD environment variable not set. Create a .env file in the project root.")
+    raise ValueError(
+        "JANUS_DB_PASSWORD environment variable not set. "
+        "Create a .env file in the project root."
+    )
 
 DATABASE_URL = f"postgresql://janus_user:{DB_PASSWORD}@localhost/janus_db"
 
@@ -25,13 +26,19 @@ Base = declarative_base()
 # Session factory to interact with the database
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+# 👇 IMPORTANT: import models so that Base.metadata knows about all tables
+# This import must stay AFTER Base is defined, otherwise you'll get circular import issues.
+from . import models  # noqa: F401
+
+
 def init_db():
     """
     Initializes the database by creating all tables defined in Base.metadata.
     """
-    print(f"Initializing PostgreSQL database: janus_db")
+    print("Initializing PostgreSQL database: janus_db")
     Base.metadata.create_all(bind=engine)
     print("Database tables created (if they didn't exist).")
+
 
 def get_db():
     """
