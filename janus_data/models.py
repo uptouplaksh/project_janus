@@ -9,12 +9,12 @@ def utcnow():
     return datetime.now(timezone.utc)
 
 
-# Host model
 class Host(Base):
     __tablename__ = 'host'
 
     id = Column(Integer, primary_key=True, index=True)
-    host_ip_address = Column(String, unique=True, index=True, nullable=False)
+    # IP SHOULD NOT be unique – the same IP may be reused, and we identify hosts by MAC
+    host_ip_address = Column(String, index=True, nullable=False)
     host_mac_address = Column(String, unique=True, nullable=False)
     host_name = Column(String, index=True)
     is_gateway = Column(Boolean, default=False)
@@ -90,7 +90,7 @@ class PacketData(Base):
 
     id = Column(Integer, primary_key=True, index=True)
 
-    # 👇 KEY FIX: make session_id nullable for now so passive sniffing works
+    # session_id is nullable for passive sniff mode
     session_id = Column(Integer, ForeignKey("attack_session.id"), nullable=True)
 
     timestamp = Column(DateTime, default=utcnow)
