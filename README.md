@@ -72,13 +72,13 @@ project_janus/
 │ ├── init.py
 │ ├── sniffer.py
 │ ├── ip_forwarder.py 
-│ └── arp_handler.py 
+│ ├── arp_handler.py
+│ └── attacker_info.py
 │
 ├── janus_data/
 │ ├── init.py
 │ ├── database.py 
-│ ├── models.py 
-│ └── db_utils.py 
+│ └── models.py 
 │
 ├── janus_attack_manager/
 │ ├── init.py
@@ -87,34 +87,40 @@ project_janus/
 ├── janus_ui/
 │ ├── init.py
 │ ├── menu.py 
-│ ├── network_select.py 
-│ ├── host_select.py 
+│ ├── selection_helper.py 
 │ ├── sniff_commands.py
 │ ├── mitm_commands.py 
 │ ├── db_commands.py 
-│ └── analysis_commands.py 
+│ └── analyzer_commands.py 
 │
 ├── janus_utils/
 │ ├── init.py
-│ ├── netinfo.py
-│ └── banner.py
+│ └── network_utils.py
+|
+├── janus_packet_analyzer/
+│ ├── init.py
+│ └── storage.py
 │
 └── docs/
-   ├── diagrams/
-   │   ├── class-diagram.png
-   │   ├── use-case-diagram.png
-   │   ├── component-diagram.png
-   │   ├── activity-launch-mitm.png
-   │   ├── activity-restore-network.png
-   │   ├── activity-packet-logging.png
-   │   ├── sequence-mitm-flow.png
-   │   └── er-diagram.png
-   │
-   └── screenshots/
-       ├── cli-main-menu.png
-       ├── mitm-started.png
-       ├── dns-analysis-output.png
-       └── sessions-list.png
+  ├── diagrams/
+  │   ├── activity/
+  │   │   ├── 01. Launch MITM activity.png
+  │   │   ├── 02. Restore Network Configuration activity.png
+  │   │   └── 03. Packet Logging and Live Monitoring activity.png
+  │   │
+  │   ├── sequence/
+  │   │   ├── Project JANUS sequence 1.png
+  │   │   ├── Project JANUS sequence 2.png
+  │   │   └── Project JANUS Sequence 3.png
+  │   │
+  │   ├── Project JANUS class.png
+  │   ├── Project JANUS component.png
+  │   ├── Project JANUS erd.png
+  │   ├── Project JANUS Hierarchy.png
+  │   └── Project JANUS Use case.png
+  │
+  └── screenshots/
+      └── (to be added after demo)
 ```
 
 ---
