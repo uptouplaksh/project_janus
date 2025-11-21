@@ -110,9 +110,6 @@ project_janus/
    │   ├── sequence-mitm-flow.png
    │   └── er-diagram.png
    │
-   ├── synopsis/
-   │   └── Project_JANUS_Synopsis.pdf   # your current PDF
-   │
    └── screenshots/
        ├── cli-main-menu.png
        ├── mitm-started.png
