@@ -101,7 +101,7 @@ project_janus/
 │ ├── init.py
 │ └── storage.py
 │
-└── docs/
+└── documentation/
   ├── diagrams/
   │   ├── activity/
   │   │   ├── 01. Launch MITM activity.png
